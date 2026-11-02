@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SMP AI Coach</title>
+<style>
+  :root { --muted: #8b949e; }
+  body { font-family: sans-serif; max-width: 640px; margin: 20px auto; padding: 0 12px; }
+  input { padding: 6px; margin: 2px; }
+  .ai-response { padding: 10px; border-radius: 6px; margin-top: 10px; background: #eee; }
+  .ai-response.hit  { background: #e3f7ef; border-left: 4px solid #4ecca3; }
+  .ai-response.miss { background: #fff3e0; border-left: 4px solid #f5a623; }
+  .label-sm { font-size: 0.75rem; text-transform: uppercase; color: #666; }
+  .prediction { font-weight: bold; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  td, th { padding: 6px; text-align: left; border-bottom: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+  <h3>SMP Daily AI Coach</h3>
+  <form id="coachForm">
+    <input id="inSleep" placeholder="Sleep (hours)">
+    <input id="inWater" placeholder="Water (glasses)">
+    <input id="inSteps" placeholder="Steps logged">
+    <button type="submit">Get Prediction + Coaching</button>
+  </form>
+  <div id="coachDisplay" class="ai-response idle">
+    <div class="label-sm">Status</div>
+    <div>Enter your data and submit.</div>
+  </div>
+
+  <h3>Session History Log</h3>
+  <form id="coachForm2">
+    <input id="h_sleep" placeholder="Sleep (hours)">
+    <input id="h_water" placeholder="Water (glasses)">
+    <input id="h_steps" placeholder="Steps">
+    <button type="submit">Log Entry</button>
+  </form>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>Sleep</th><th>Water</th><th>Steps</th><th>Goal</th><th>Conf.</th></tr>
+    </thead>
+    <tbody id="historyTable"></tbody>
+  </table>
+
+  <script src="coach.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>
